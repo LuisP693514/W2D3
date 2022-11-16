@@ -85,7 +85,7 @@ class Board
 
 end
 
-b = Board.new
+# b = Board.new
 
 # p b.valid?([1,4]) # false
 # p b.valid?([2,2]) # true
