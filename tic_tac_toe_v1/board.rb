@@ -1,4 +1,6 @@
 
+# tic_tac_toe_v1/board.rb
+
 class Board
 
     def initialize
@@ -10,8 +12,18 @@ class Board
 
     def valid?(position)
 
-        
+        position.each {|ele| return false if ele > 2 || ele < 0}
+
+        true
 
     end
 
+
+
 end
+
+b = Board.new
+
+# p b.valid?([1,4]) # false
+# p b.valid?([2,2]) # true
+# p b.valid?([-1, 2]) # false
