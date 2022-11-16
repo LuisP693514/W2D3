@@ -5,7 +5,7 @@ class Board
 
     def initialize
 
-        @grid = Array.new(3) {Array.new(3, "_")}
+        @grid = Array.new(3) {Array.new(3, :_)}
 
         
     end
@@ -20,7 +20,7 @@ class Board
 
     def empty?(pos)
 
-        @grid[pos[0]][pos[1]] == "_"
+        @grid[pos[0]][pos[1]] == :_
 
     end
 
@@ -38,6 +38,21 @@ class Board
             raise RuntimeError.new("Position is not valid! (Top left is [0,0], bottom right is [2,2])")
         end
     end
+
+    def print
+
+        @grid.each {|row| p row.join(" ") }
+
+    end
+
+    def win_row?(mark)
+
+        @grid.each {|row| return true if row.all?(mark)}
+
+        false
+
+    end
+
 end
 
 b = Board.new
@@ -51,3 +66,15 @@ b = Board.new
 # p b.place_mark([1,4], "X") # Invalid spot error
 # b.place_mark([0,0], "x")
 # p b.place_mark([0,0], "o") # Invalid not empty
+
+# b.print   # _ _ _  *Assuming you have not placed anything on board
+#           # _ _ _
+#           # _ _ _
+
+# b.place_mark([0,0], "x")
+# b.place_mark([0,1], "x")
+# b.place_mark([0,2], "x")
+
+# p b.win_row?("x") # true
+# p b.win_row?("o") # false
+
