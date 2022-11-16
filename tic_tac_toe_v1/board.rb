@@ -83,7 +83,7 @@ class Board
 
 end
 
-b = Board.new
+# b = Board.new
 
 # p b.valid?([1,4]) # false
 # p b.valid?([2,2]) # true
@@ -130,20 +130,20 @@ b = Board.new
 
 #---------------------------
 
-b.place_mark([0,0], "x")
-b.place_mark([0,1], "x")
-b.place_mark([0,2], "x")
-b.place_mark([1,0], "x")
-b.place_mark([1,1], "x")
-b.place_mark([1,2], "x")
-b.place_mark([2,0], "x")
-b.place_mark([2,1], "x")
+# b.place_mark([0,0], "x")
+# b.place_mark([0,1], "x")
+# b.place_mark([0,2], "x")
+# b.place_mark([1,0], "x")
+# b.place_mark([1,1], "x")
+# b.place_mark([1,2], "x")
+# b.place_mark([2,0], "x")
+# b.place_mark([2,1], "x")
 
-p b.empty_positions? #true
+# p b.empty_positions? #true
 
-b.place_mark([2,2], "x")
+# b.place_mark([2,2], "x")
 
-p b.empty_positions? #false
+# p b.empty_positions? #false
 
 #---------------------------
 
