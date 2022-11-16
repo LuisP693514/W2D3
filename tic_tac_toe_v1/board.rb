@@ -63,13 +63,13 @@ class Board
 
     def win_diagonal?(mark)
 
-        t_grid = @grid.transpose
+        r_grid = @grid.reverse
 
         diag = []
         other_diag = []
 
         @grid.each.with_index {|row, i1| row.each.with_index {|val, i2| diag << val if i1 == i2}}
-        t_grid.each.with_index {|row, i1| row.each.with_index {|val, i2| other_diag << val if i1 == i2}}
+        r_grid.each.with_index {|row, i1| row.each.with_index {|val, i2| other_diag << val if i1 == i2}}
 
         diag.all?(mark) || other_diag.all?(mark)
 
@@ -85,7 +85,7 @@ class Board
 
 end
 
-# b = Board.new
+b = Board.new
 
 # p b.valid?([1,4]) # false
 # p b.valid?([2,2]) # true
@@ -121,9 +121,11 @@ end
 
 #---------------------------
 
-# b.place_mark([0,0], "x")
+# b.place_mark([0,2], "x")
 # b.place_mark([1,1], "x")
-# b.place_mark([2,2], "x")
+# b.place_mark([2,0], "x")
+
+# b.print
 
 # p b.win_diagonal?("x") # true
 # p b.win_diagonal?("o") # false
