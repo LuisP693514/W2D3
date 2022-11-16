@@ -77,9 +77,7 @@ class Board
 
     def empty_positions?
 
-        @grid.each {|row| row.each {|val| return true if val == :_ }}
-
-        false
+        @grid.flatten.any?(:_)
 
     end
 
@@ -132,20 +130,20 @@ b = Board.new
 
 #---------------------------
 
-# b.place_mark([0,0], "x")
-# b.place_mark([0,1], "x")
-# b.place_mark([0,2], "x")
-# b.place_mark([1,0], "x")
-# b.place_mark([1,1], "x")
-# b.place_mark([1,2], "x")
-# b.place_mark([2,0], "x")
-# b.place_mark([2,1], "x")
+b.place_mark([0,0], "x")
+b.place_mark([0,1], "x")
+b.place_mark([0,2], "x")
+b.place_mark([1,0], "x")
+b.place_mark([1,1], "x")
+b.place_mark([1,2], "x")
+b.place_mark([2,0], "x")
+b.place_mark([2,1], "x")
 
-# p b.empty_positions? #true
+p b.empty_positions? #true
 
-# b.place_mark([2,2], "x")
+b.place_mark([2,2], "x")
 
-# p b.empty_positions? #false
+p b.empty_positions? #false
 
 #---------------------------
 
