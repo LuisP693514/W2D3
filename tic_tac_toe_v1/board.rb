@@ -53,6 +53,14 @@ class Board
 
     end
 
+    def win_col?(mark)
+
+        @grid.transpose.each {|row| return true if row.all?(mark)}
+
+        false
+
+    end
+
 end
 
 b = Board.new
@@ -77,4 +85,12 @@ b = Board.new
 
 # p b.win_row?("x") # true
 # p b.win_row?("o") # false
+
+# b.place_mark([0,0], "x")
+# b.place_mark([1,0], "x")
+# b.place_mark([2,0], "x")
+
+# p b.win_col?("x") # true
+# p b.win_col?("o") # false
+
 
