@@ -61,6 +61,28 @@ class Board
 
     end
 
+    def win_diagonal?(mark)
+
+        t_grid = @grid.transpose
+
+        diag = []
+        other_diag = []
+
+        @grid.each.with_index {|row, i1| row.each.with_index {|val, i2| diag << val if i1 == i2}}
+        t_grid.each.with_index {|row, i1| row.each.with_index {|val, i2| other_diag << val if i1 == i2}}
+
+        diag.all?(mark) || other_diag.all?(mark)
+
+    end
+
+    def empty_positions?
+
+        @grid.each {|row| row.each {|val| return true if val == :_ }}
+
+        false
+
+    end
+
 end
 
 b = Board.new
@@ -79,6 +101,8 @@ b = Board.new
 #           # _ _ _
 #           # _ _ _
 
+#---------------------------
+
 # b.place_mark([0,0], "x")
 # b.place_mark([0,1], "x")
 # b.place_mark([0,2], "x")
@@ -86,11 +110,41 @@ b = Board.new
 # p b.win_row?("x") # true
 # p b.win_row?("o") # false
 
+#---------------------------
+
 # b.place_mark([0,0], "x")
 # b.place_mark([1,0], "x")
 # b.place_mark([2,0], "x")
 
 # p b.win_col?("x") # true
 # p b.win_col?("o") # false
+
+#---------------------------
+
+# b.place_mark([0,0], "x")
+# b.place_mark([1,1], "x")
+# b.place_mark([2,2], "x")
+
+# p b.win_diagonal?("x") # true
+# p b.win_diagonal?("o") # false
+
+#---------------------------
+
+# b.place_mark([0,0], "x")
+# b.place_mark([0,1], "x")
+# b.place_mark([0,2], "x")
+# b.place_mark([1,0], "x")
+# b.place_mark([1,1], "x")
+# b.place_mark([1,2], "x")
+# b.place_mark([2,0], "x")
+# b.place_mark([2,1], "x")
+
+# p b.empty_positions? #true
+
+# b.place_mark([2,2], "x")
+
+# p b.empty_positions? #false
+
+#---------------------------
 
 
