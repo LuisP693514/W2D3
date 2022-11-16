@@ -1,8 +1,6 @@
 
 # tic_tac_tow_v1/human_player.rb
 
-require_relative "board.rb"
-
 class HumanPlayer
 
     attr_reader :mark
